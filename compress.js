@@ -11,6 +11,8 @@ You can assume that the input only contains alphabetic characters.
 */
 
 // TWO POINTER & STACK
+// T: O(n) S: O(n)
+
 const compress = (s) => {
   const compressed = []; // strings are immutable in JS
   let i = 0;

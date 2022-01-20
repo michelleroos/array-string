@@ -13,6 +13,7 @@ The function should return an uncompressed version of the string where each 'cha
 
 // USING A STACK
 // T: O(n*m) S: O(n*m)
+
 // const uncompress = (s) => {
 //   const nums = '123456789';
 //   const stack = [];
@@ -31,6 +32,8 @@ The function should return an uncompressed version of the string where each 'cha
 // };
 
 // USING TWO POINTERS
+// T: O(n*m) S: O(n*m)
+
 const uncompress = (s) => {
   const nums = '123456789';
   const uncompressed = [];
