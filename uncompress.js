@@ -11,14 +11,18 @@ The function should return an uncompressed version of the string where each 'cha
 
 */
 
-const uncompress = (s) => { // 2c3a1t
-  const nums = '23456789';
-  const stack = []; // cc
-  for (let char of s) { // '3'
-    if (nums.includes(char)) { // T
+// USING A STACK
+const uncompress = (s) => { 
+  const nums = '123456789';
+  const stack = []; 
+  for (let char of s) { 
+    if (nums.includes(char)) {
       stack.push(Number(char));
     } else {
-      const num = stack.pop(); // 2
+      let num = '';
+      while (nums.includes(stack[stack.length - 1])) {
+        num += stack.pop(); 
+      }
       stack.push(char.repeat(num));
     };
   };
