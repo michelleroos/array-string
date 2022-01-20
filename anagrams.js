@@ -5,6 +5,9 @@ Write a function, anagrams, that takes in two strings as arguments. The function
 
 */
 
+// USING A HASH TO TRACK
+// T: O(n + m) S: O(n)
+
 const anagrams = (s1, s2) => {
   const anagram = {};
   for (let char of s1) {
