@@ -12,19 +12,23 @@ You can assume that the input only contains alphabetic characters.
 
 // TWO POINTER & STACK
 const compress = (s) => {
-  const compressed = [];
+  const compressed = []; // strings are immutable in JS
+  let i = 0;
   let j = 0;
-  for (let i = 0; i < s.length; i++) {
+  while (j <= s.length) {
     if (s[i] === s[j]) {
-      j++; // progress j
+      j++;
     } else {
-      const sub = s.slice(i, j);
-      const num = sub.length;
-      compressed.push(num, sub);
+      const num = j - i;
+      if (num === 1) {
+        compressed.push(s[i]);
+      } else {
+        compressed.push(num, s[i]);
+      };
       i = j;
     };
   };
-  return compressed.join('')
+  return compressed.join('');
 };
 
 // test_00:
