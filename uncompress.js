@@ -12,21 +12,27 @@ The function should return an uncompressed version of the string where each 'cha
 */
 
 // USING A STACK
-const uncompress = (s) => { 
+// T: O(n*m) S: O(n*m)
+const uncompress = (s) => {
   const nums = '123456789';
-  const stack = []; 
-  for (let char of s) { 
+  const stack = [];
+  for (let char of s) {
     if (nums.includes(char)) {
-      stack.push(Number(char));
+      stack.push(char);
     } else {
-      let num = '';
+      const num = [];
       while (nums.includes(stack[stack.length - 1])) {
-        num += stack.pop(); 
+        num.unshift(stack.pop());
       }
-      stack.push(char.repeat(num));
+      stack.push(char.repeat(Number(num.join(''))));
     };
   };
   return stack.join('');
+};
+
+// USING TWO POINTERS
+const uncompress = (s) => {
+
 };
 
 // test_00:
