@@ -10,7 +10,7 @@ Write a function, compress, that takes in a string as an argument. The function 
 You can assume that the input only contains alphabetic characters.
 */
 
-// TWO POINTER & STACK
+// TWO POINTER
 // T: O(n) S: O(n)
 
 const compress = (s) => {
