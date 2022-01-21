@@ -24,13 +24,13 @@ const tokenTransform = (s, tokens) => {
     } else {
       const key = s.slice(i, j + 1);
       const value = tokens[key];
-      const transform = tokenTransform(value, tokens);
-      tokens[key] = transform;
-      transformed.push(transform);
+      const token = tokenTransform(value, tokens);
+      tokens[key] = token;
+      transformed.push(token);
       i = j + 1;
       j = i + 1;
-    }
-  }
+    };
+  };
   return transformed.join('');
 };
 
