@@ -11,16 +11,29 @@ There is guaranteed to be one such pair that sums to the target.
 // NESTED LOOP WITH DISTINCT PAIRS
 // T: O(n2) S: O(n)
 
+// const pairSum = (numbers, targetSum) => {
+//   const pairs = [];
+//   for (let i = 0; i < numbers.length - 1; i++) {
+//     for (let j = i + 1; j < numbers.length; j++) {
+//       if (numbers[i] + numbers[j] === targetSum) {
+//         pairs.push(i, j);
+//       };
+//     };
+//   };
+//   return pairs;
+// };
+
+// USING A HASH TO DECREASE RUNTIME
+// T: O(n) S: O(n)
+
 const pairSum = (numbers, targetSum) => {
-  const pairs = [];
-  for (let i = 0; i < numbers.length - 1; i++) {
-    for (let j = i + 1; j < numbers.length; j++) {
-      if (numbers[i] + numbers[j] === targetSum) {
-        pairs.push(i, j);
-      };
-    };
+  const numsTracker = {};
+  for (let i = 0; i < numbers.length; i++) {
+    const num = numbers[i];
+    const diff = targetSum - num;
+    if (diff in numsTracker) return [i, numsTracker[diff]];
+    numsTracker[num] = i;
   };
-  return pairs;
 };
 
 // test_00:
